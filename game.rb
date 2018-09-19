@@ -65,6 +65,10 @@ class Game
   end
 
   def load
+    unless Dir.exist?('save')
+     puts 'There is no game saves right now'
+     exit
+    end
     game_saves = Dir.entries('save').reject { |f| File.directory?(f) }.join("\n")
     puts 'Enter the game save name that you want to load from',
          "\nHere are all game saves\n"
